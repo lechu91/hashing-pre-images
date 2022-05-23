@@ -4,7 +4,6 @@ import random
 import string
 
 def hash_preimage(target_string):
-    print("checkpoint 1")
     if not all([x in '01' for x in target_string]):
         print("Input should be a string of bits")
         return
@@ -16,7 +15,6 @@ def hash_preimage(target_string):
     letters = string.ascii_letters
     target_binary = int(target_string,2)
 
-    print("checkpoint 2")
     while True:
         x = (''.join(random.choice(letters) for _ in range(random.randint(1, 10)))).encode('utf-8')
         hash_x = hashlib.sha256(x).hexdigest()
@@ -24,11 +22,6 @@ def hash_preimage(target_string):
         if comp_x == target_binary:
             break
             
-    print("checkpoint 3")
-    print(x)
-    print(hash_x)
-    print(target_string)
-    
     nonce = x
 
     return nonce
