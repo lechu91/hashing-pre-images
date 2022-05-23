@@ -22,6 +22,6 @@ def hash_preimage(target_string):
         if comp_x == target_binary:
             break
 
-    nonce = b'\x00'
+    nonce = x
 
     return nonce
